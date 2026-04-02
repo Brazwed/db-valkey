@@ -1,8 +1,8 @@
 # db-valkey
 
-Valkey 8 Docker container pré-configurado. Fork comunitário do Redis, compatível com a API Redis.
+Valkey 8 Docker container pre-configured. Community Redis fork, API compatible.
 
-## Uso rápido
+## Quick Start
 
 ```bash
 git clone https://github.com/Brazwed/db-valkey.git
@@ -10,19 +10,19 @@ cd db-valkey
 docker compose up -d
 ```
 
-## Conexão padrão
+## Default Connection
 
 ```
 Host:     localhost
-Porta:    6380
-Senha:    valkey_dev_2026
+Port:     6380
+Pass:     valkey_dev_2026
 
 redis-cli -h localhost -p 6380 -a valkey_dev_2026
 ```
 
-## Configuração
+## Configuration
 
-Edite `.env` (criado automaticamente de `.env.example`):
+Edit `.env` (created automatically from `.env.example`):
 
 ```env
 VK_PORT=6380
@@ -30,6 +30,6 @@ VK_PASS=valkey_dev_2026
 VK_MAXMEMORY=512mb
 ```
 
-## Parte do Database Toolkit
+## Part of Database Toolkit
 
-Este repositório pode ser usado standalone ou junto com outros bancos via [Database](https://github.com/Brazwed/Database).
+This repo can be used standalone or with other databases via [Database Toolkit](https://github.com/Brazwed/Database).
