@@ -1,0 +1,19 @@
+services:
+  valkey:
+    image: valkey/valkey:8
+    container_name: valkey_${COMPOSE_PROJECT_NAME:-default}
+    restart: unless-stopped
+    command: >
+      valkey-server
+      --requirepass ${VK_PASS}
+      --maxmemory ${VK_MAXMEMORY}
+      --maxmemory-policy allkeys-lru
+    ports:
+      - "${VK_PORT}:6379"
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "valkey-cli", "-a", "${VK_PASS}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
